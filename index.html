@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beytullah Akça | Barber Studio - Premium Cyber Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="cyber-preloader">
+        <div class="loader-content">
+            <h2 class="glitch-text" data-text="BEYTULLAH AKÇA">BEYTULLAH AKÇA</h2>
+            <p class="cyber-sub">BARBER STUDIO // SYSTEM INITIALIZING...</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="load-progress"></div>
+            </div>
+            <div class="status-counter" id="status-counter">0%</div>
+        </div>
+    </div>
+
+    <div class="scanlines"></div>
+    <div class="hud-corners">
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
+    </div>
+
+    <canvas id="cyber-canvas"></canvas>
+
+    <nav class="cyber-navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                BEYTULLAH <span class="neon-pink-text">AKÇA</span>
+                <span class="logo-sub">STUDIO V2.0</span>
+            </a>
+            <div class="nav-links">
+                <a href="#studio" class="nav-item">Stüdyo</a>
+                <a href="#rituller" class="nav-item">Ritüeller</a>
+                <a href="#saatler" class="nav-item">Sistem Saatleri</a>
+                <a href="#iletisim" class="nav-item">Matris/Konum</a>
+            </div>
+            <div class="nav-cta">
+                <a href="https://wa.me/905446113529?text=Merhaba%20Beytullah%20usta,%20premium%20koltuğunuzda%20bir%20randevu%20oluşturmak%20istiyorum!" target="_blank" class="cyber-btn neon-blue-btn">
+                    <span class="btn-text">RANDEVU AL //</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="cyber-hero">
+        <div class="hero-image-layer"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hud-tag">ID: 0544 611 35 29 // MERKEZ EFENDİ</div>
+            <h1 class="glitch-title" data-text="CYBER BARBER">CYBER BARBER</h1>
+            <p class="hero-description">
+                Geleneksel berber ruhu, fütüristik siber estetikle birleşti. Saçın varsa tarzın var, korkma göster paşam.
+            </p>
+            <div class="hero-actions">
+                <a href="https://wa.me/905446113529?text=Merhaba%20Beytullah%20usta,%20premium%20koltuğunuzda%20bir%20randevu%20oluşturmak%20istiyorum!" target="_blank" class="cyber-btn neon-pink-btn">
+                    <span class="btn-text">RANDEVU AL</span>
+                </a>
+                <a href="https://www.instagram.com/akcabeyto/" target="_blank" class="cyber-btn outline-btn">
+                    <span class="btn-text">INSTAGRAM // DESTEK</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse-wheel"></div>
+            <span>AŞAĞI SCAN ET</span>
+        </div>
+    </header>
+
+    <section id="studio" class="cyber-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="sec-subtitle">// 01 // PREMIUM DENEYİM</span>
+                <h2 class="sec-title">BEYTULLAH AKÇA STUDIO</h2>
+            </div>
+            <div class="studio-grid">
+                <div class="studio-card glass-panel">
+                    <div class="card-badge">PREMIUM</div>
+                    <h3>Yapay Zeka Destekli Kesim Analizi</h3>
+                    <p>Kafa yapına, yüz hatlarına ve siber yaşam tarzına en uygun saç stilini veri odaklı mimariyle şekillendiriyoruz.</p>
+                </div>
+                <div class="studio-card glass-panel">
+                    <div class="card-badge">X-FACTOR</div>
+                    <h3>Neon Ambiance Ritüeli</h3>
+                    <p>Klasik tıraş deneyimini unut. RGB terapi ışıkları, cyberpunk müzik playlistleri and sıcak havlu kompresiyle zihnini resetle.</p>
+                </div>
+                <div class="studio-card glass-panel">
+                    <div class="card-badge">5.0 SCORE</div>
+                    <h3>Kusursuz Müşteri Memnuniyeti</h3>
+                    <p>Google üzerinde tam 5.0 puanlama doğruluğu ile saç tasarımı alanında hata payını sıfıra indiriyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rituller" class="cyber-section alt-bg">
+        <div class="container">
+            <div class="section-header center">
+                <span class="sec-subtitle">// 02 // SİBER OPERASYONLAR</span>
+                <h2 class="sec-title">HİZMET RİTÜELLERİ</h2>
+            </div>
+            
+            <div class="price-tabs">
+                <button class="tab-btn active" data-target="all">TÜM OPERASYONLAR</button>
+                <button class="tab-btn" data-target="kesim">SAÇ & SAKAL</button>
+                <button class="tab-btn" data-target="bakim">VİP BAKIM</button>
+            </div>
+
+            <div class="price-grid">
+                <div class="price-item glass-panel" data-category="kesim">
+                    <div class="price-info">
+                        <h4>SAÇ KESİM // HAIR DESIGN</h4>
+                        <p>Kişiye özel fütüristik hat belirleme ve yıkama dahil.</p>
+                    </div>
+                    <div class="service-status">// READY</div>
+                </div>
+                <div class="price-item glass-panel" data-category="kesim">
+                    <div class="price-info">
+                        <h4>SAKAL TASARIMI // BEARD STYLE</h4>
+                        <p>Sıcak havlu, buhar terapisi ve özel jilet hattı çizimi.</p>
+                    </div>
+                    <div class="service-status">// READY</div>
+                </div>
+                <div class="price-item glass-panel" data-category="kesim">
+                    <div class="price-info">
+                        <h4>SAÇ + SAKAL KOMBİN</h4>
+                        <p>Komple tarz yenileme, yıkama ve özel şekillendirici serum uygulaması.</p>
+                    </div>
+                    <div class="service-status">// READY</div>
+                </div>
+                <div class="price-item glass-panel" data-category="bakim">
+                    <div class="price-info">
+                        <h4>YIKAMA & DETOKS</h4>
+                        <p>Saç derisi masajı ve canlandırıcı mentol bakımı.</p>
+                    </div>
+                    <div class="service-status">// READY</div>
+                </div>
+                <div class="price-item glass-panel" data-category="bakim">
+                    <div class="price-info">
+                        <h4>FAÖN RİTÜELİ</h4>
+                        <p>Özel mat/parlak wax çeşitleri ile kalıcı fön mimarisi.</p>
+                    </div>
+                    <div class="service-status">// READY</div>
+                </div>
+                <div class="price-item glass-panel" data-category="bakim">
+                    <div class="price-info">
+                        <h4>SİBER VIP BAKIM PAKETİ</h4>
+                        <p>Saç kesim, sakal tasarımı, maske, siyah nokta temizliği ve saç serumu.</p>
+                    </div>
+                    <div class="service-status text-pink">// VIP ONLY</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="saatler" class="cyber-section">
+        <div class="container">
+            <div class="schedule-wrapper glass-panel">
+                <div class="schedule-info">
+                    <span class="sec-subtitle">// 03 // MATRİS ZAMAN SİMÜLASYONU</span>
+                    <h2 class="sec-title">OPERASYON SAATLERİ</h2>
+                    <p class="schedule-desc">Sistemlerimiz haftanın 6 günü gece yarısına kadar kesintisiz çalışmaktadır. Pazar günleri veri tabanı optimizasyonu nedeniyle kapalıyız.</p>
+                    
+                    <div class="live-status-badge" id="live-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">SİSTEM DURUMU YÜKLENİYOR...</span>
+                    </div>
+                </div>
+                <div class="schedule-table">
+                    <div class="table-row"><span>PAZARTESİ</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row"><span>SALI</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row"><span>ÇARŞAMBA</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row"><span>PERŞEMBE</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row"><span>CUMA</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row"><span>CUMARTESİ</span><strong>08:30 – 00:00</strong></div>
+                    <div class="table-row closed"><span>PAZAR</span><strong class="neon-pink-text">KAPALI // OFFLINE</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cyber-section alt-bg">
+        <div class="container">
+            <div class="grid-2col">
+                <div class="faq-wrapper">
+                    <div class="section-header">
+                        <span class="sec-subtitle">// VERİ SORGULAMA</span>
+                        <h2 class="sec-title">SIKÇA SORULANLAR</h2>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-item glass-panel">
+                            <div class="accordion-header">Randevusuz Kabul Yapıyor musunuz?</div>
+                            <div class="accordion-body">
+                                <p>Premium deneyim kalitesini korumak adına önceliğimiz her zaman randevulu sistemdir paşam. Ancak dükkandaki siber yoğunluk durumuna göre esneklik sağlayabiliyoruz. Gelmeden önce araman veya yazman en temiz çözüm olur.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-panel">
+                            <div class="accordion-header">Ödeme Yöntemleri Nelerdir?</div>
+                            <div class="accordion-body">
+                                <p>Nakit, tüm banka/kredi kartları ve NFC özellikli siber dijital ödemeler (Havale/EFT) sistemlerimizde entegredir.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-panel">
+                            <div class="accordion-header">Kullanılan Bakım Ürünleri Kaliteli mi?</div>
+                            <div class="accordion-body">
+                                <p>Studio bünyemizde sadece dünya standartlarında, premium segment siber saç ve cilt serumları kullanılmaktadır. Alerjen ve kalitesiz hiçbir madde ağımıza sızamaz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-wrapper">
+                    <div class="section-header">
+                        <span class="sec-subtitle">// KULLANICI GERİ BİLDİRİMLERİ</span>
+                        <h2 class="sec-title">5.0 YILDIZ ANALİZİ</h2>
+                    </div>
+                    <div class="review-carousel">
+                        <div class="review-card glass-panel">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Merkez Efendi'de böyle bir mekan açılması vizyon işi olmuş. İçerideki cyberpunk atmosferi, çay ikramı ve Beytullah Bey'in kesim sırasındaki titizliği tek kelimeyle kusursuz."</p>
+                            <span class="review-user">// Kerem T. (Doğrulanmış Kullanıcı)</span>
+                        </div>
+                        <div class="review-card glass-panel">
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Sakal tasarımı için gittim, sıcak havlu ritüeli harika ötesiydi. Kendinizi çok özel ve lüks bir stüdyoda hissediyorsunuz. Fiyat bilgisini de telefonda çok kibar netleştiriyorlar."</p>
+                            <span class="review-user">// Canberk K. (Doğrulanmış Kullanıcı)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="cyber-section">
+        <div class="container">
+            <div class="contact-grid glass-panel">
+                <div class="contact-info-panel">
+                    <div class="section-header">
+                        <span class="sec-subtitle">// MATRİS KOORDİNATI</span>
+                        <h2 class="sec-title">MERKEZE BAĞLAN</h2>
+                    </div>
+                    <p class="contact-lead">Siber koltuğumuza oturmak ve tarzını baştan yaratmak için lokasyon bilgilerimiz aşağıdadır.</p>
+                    <div class="info-blocks">
+                        <div class="info-block">
+                            <span class="icon">⚡ PHONE_LINE:</span>
+                            <a href="tel:05446113529" class="info-link">0544 611 35 29</a>
+                        </div>
+                        <div class="info-block">
+                            <span class="icon">📸 INSTAGRAM:</span>
+                            <a href="https://www.instagram.com/akcabeyto/" target="_blank" class="info-link">@akcabeyto</a>
+                        </div>
+                        <div class="info-block">
+                            <span class="icon">📍 ADRESS_COORDS:</span>
+                            <span class="info-text">Merkez Efendi, İstanbul, Türkiye</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12377.192958254373!2d34.153452516055225!3d39.145197790202346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d573002aa69bef%3A0x935ce75722d98925!2sBeytullah%20Ak%C3%A7a%20Barber%20Studio!5e0!3m2!1str!2str!4v1781011530830!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="cyber-footer">
+        <div class="container footer-content">
+            <p>© 2026 Beytullah Akça Barber Studio. Tüm Sistem Hakları Saklıdır.</p>
+            <span class="footer-tag">// BU SİTE GELECEĞİN TEKNOLOJİSİYLE KODLANMIŞTIR //</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

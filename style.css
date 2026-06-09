@@ -1,0 +1,561 @@
+/* ==========================================================================
+   CYBERPUNK BARBER DESIGN SYSTEM (NO-PRICE PREMIUM BASE)
+   ========================================================================== */
+
+:root {
+    --bg-dark: #030307;
+    --bg-card: rgba(10, 10, 18, 0.75);
+    --neon-pink: #ff0055;
+    --neon-blue: #00f0ff;
+    --cyber-yellow: #fcee0a;
+    --text-white: #ffffff;
+    --text-gray: #a2a2bd;
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-main: 'Rajdhani', sans-serif;
+    --border-glow: rgba(0, 240, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   HUD EFFECTS & OVERLAYS
+   ========================================================================== */
+
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 999;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.hud-corners .corner {
+    position: fixed;
+    width: 20px; height: 20px;
+    border: 2px solid var(--neon-blue);
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.hud-corners .tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+.hud-corners .tr { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+.hud-corners .bl { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+.hud-corners .br { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+#cyber-canvas {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   PRELOADER SİSTEMİ
+   ========================================================================== */
+
+#cyber-preloader {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #020205;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-out;
+}
+.loader-content {
+    text-align: center;
+    width: 300px;
+}
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+.cyber-sub {
+    font-family: var(--font-cyber);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--neon-pink);
+}
+.status-counter {
+    font-family: var(--font-cyber);
+    color: var(--text-white);
+}
+
+/* ==========================================================================
+   NAVBAR & BUTTONS
+   ========================================================================== */
+
+.cyber-navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 900;
+    background: rgba(3, 3, 7, 0.85);
+    backdrop-filter: blur(15px);
+    border-b: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 15px 0;
+}
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+.nav-logo {
+    font-family: var(--font-cyber);
+    font-weight: 900;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+.logo-sub {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--cyber-yellow);
+    letter-spacing: 3px;
+}
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+.nav-item {
+    font-family: var(--font-cyber);
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+    font-weight: 600;
+}
+.nav-item:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.cyber-btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--font-cyber);
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.neon-blue-btn {
+    background: transparent;
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    box-shadow: inset 0 0 8px rgba(0, 240, 255, 0.2), 0 0 10px rgba(0, 240, 255, 0.2);
+}
+.neon-blue-btn:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 25px var(--neon-blue);
+}
+.neon-pink-btn {
+    background: var(--neon-pink);
+    color: #fff;
+    box-shadow: 0 0 15px var(--neon-pink);
+    clip-path: polygon(0 0, 90% 0, 100% 30%, 100% 100%, 10% 100%, 0 70%);
+}
+.neon-pink-btn:hover {
+    box-shadow: 0 0 30px var(--neon-pink);
+    transform: scale(1.03);
+}
+.outline-btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+.outline-btn:hover {
+    border-color: var(--cyber-yellow);
+    color: var(--cyber-yellow);
+}
+
+/* ==========================================================================
+   HERO SECTION (ANASAYFA TAM GÖRSEL ENTEGRASYONU)
+   ========================================================================== */
+
+.cyber-hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+}
+.hero-image-layer {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('ana.png'); /* Masaüstü görseli */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(3,3,7,0.4) 0%, rgba(3,3,7,0.9) 85%);
+    z-index: -1;
+}
+.hero-content {
+    max-width: 850px;
+    padding: 0 20px;
+}
+.hud-tag {
+    font-family: var(--font-cyber);
+    color: var(--cyber-yellow);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+.glitch-title {
+    font-family: var(--font-cyber);
+    font-size: 5.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+.hero-description {
+    font-size: 1.4rem;
+    color: var(--text-gray);
+    margin: 25px 0 45px 0;
+    font-weight: 500;
+    line-height: 1.6;
+}
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-cyber);
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    letter-spacing: 2px;
+}
+.mouse-wheel {
+    width: 20px; height: 35px;
+    border: 2px solid var(--text-gray);
+    border-radius: 10px;
+    position: relative;
+}
+.mouse-wheel::before {
+    content: '';
+    position: absolute;
+    top: 6px; left: 50%;
+    width: 4px; height: 8px;
+    background: var(--neon-blue);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scrollMouse 1.5s infinite;
+}
+
+@keyframes scrollMouse {
+    0% { opacity: 1; top: 6px; }
+    100% { opacity: 0; top: 18px; }
+}
+
+/* MOBİL GÖRSEL OPTİMİZASYONU */
+@media (max-width: 768px) {
+    .hero-image-layer {
+        background-image: url('mobil.png') !important; /* Mobilde otomatik mobil.png aktif */
+        background-attachment: scroll;
+    }
+    .glitch-title { font-size: 3rem; }
+    .hero-description { font-size: 1.1rem; }
+    .hero-actions { flex-direction: column; gap: 15px; }
+    .nav-links, .nav-cta { display: none; }
+}
+
+/* ==========================================================================
+   GLASSMORPHISM PANELS & LAYOUTS
+   ========================================================================== */
+
+.cyber-section {
+    padding: 120px 0;
+    position: relative;
+    z-index: 10;
+}
+.alt-bg { background: rgba(5, 5, 10, 0.6); }
+
+.section-header { margin-bottom: 60px; }
+.section-header.center { text-align: center; }
+.sec-subtitle {
+    font-family: var(--font-cyber);
+    color: var(--neon-pink);
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 10px;
+}
+.sec-title {
+    font-family: var(--font-cyber);
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.glass-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glow);
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    transition: 0.4s ease;
+}
+.glass-panel:hover {
+    border-color: rgba(255, 0, 85, 0.4);
+    box-shadow: 0 15px 40px rgba(255, 0, 85, 0.15), inset 0 0 20px rgba(255, 0, 85, 0.05);
+}
+
+.studio-grid {
+    display: grid;
+    grid-template-cols: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+.studio-card { position: relative; }
+.card-badge {
+    position: absolute;
+    top: -12px; right: 20px;
+    background: var(--cyber-yellow);
+    color: #000;
+    font-family: var(--font-cyber);
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 3px 10px;
+    letter-spacing: 1px;
+}
+.studio-card h3 {
+    font-family: var(--font-cyber);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.studio-card p {
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   HİZMET OPERASYONLARI GÖRSELİ (FİYATSIZ SEÇENEK SİSTEMİ)
+   ========================================================================== */
+
+.price-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+.tab-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-gray);
+    padding: 12px 24px;
+    font-family: var(--font-cyber);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.tab-btn.active, .tab-btn:hover {
+    border-color: var(--neon-blue);
+    color: var(--neon-blue);
+    background: rgba(0, 240, 255, 0.05);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.price-grid {
+    display: grid;
+    grid-template-cols: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
+}
+@media (max-width: 500px) { .price-grid { grid-template-cols: 1fr; } }
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+}
+.price-info h4 {
+    font-family: var(--font-cyber);
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+.price-info p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+}
+.service-status {
+    font-family: var(--font-cyber);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--neon-blue);
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+.service-status.text-pink {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
+}
+
+/* ==========================================================================
+   OPERASYON SAATLERİ VE GERİ KALAN ALANLAR
+   ========================================================================== */
+
+.schedule-wrapper {
+    display: grid;
+    grid-template-cols: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+@media (max-width: 768px) { .schedule-wrapper { grid-template-cols: 1fr; gap: 30px; } }
+
+.schedule-desc {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.live-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: var(--font-cyber);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.status-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-open .status-dot { background: #00ff66; box-shadow: 0 0 12px #00ff66; }
+.status-open { border-color: rgba(0,255,102,0.3); color: #00ff66; }
+.status-closed .status-dot { background: var(--neon-pink); box-shadow: 0 0 12px var(--neon-pink); }
+.status-closed { border-color: rgba(255,0,85,0.3); color: var(--neon-pink); }
+
+.schedule-table .table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 1.1rem;
+}
+.schedule-table .table-row span { font-family: var(--font-cyber); font-weight: 600; }
+
+.grid-2col {
+    display: grid;
+    grid-template-cols: 1fr 1fr;
+    gap: 50px;
+}
+@media (max-width: 900px) { .grid-2col { grid-template-cols: 1fr; gap: 40px; } }
+
+.accordion-item { padding: 0; margin-bottom: 15px; overflow: hidden; }
+.accordion-header {
+    padding: 20px 25px;
+    font-family: var(--font-cyber);
+    font-weight: 700;
+    cursor: pointer;
+    background: rgba(255,255,255,0.02);
+    transition: 0.3s;
+    user-select: none;
+}
+.accordion-header:hover { color: var(--neon-blue); }
+.accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; padding: 0 25px; }
+.accordion-body p { padding-bottom: 20px; color: var(--text-gray); line-height: 1.6; }
+.accordion-item.active .accordion-body { max-height: 200px; }
+.accordion-item.active .accordion-header { border-b: 1px solid rgba(0, 240, 255, 0.1); color: var(--neon-blue); }
+
+.review-card { margin-bottom: 20px; }
+.review-stars { color: var(--cyber-yellow); margin-bottom: 10px; font-size: 1.2rem; }
+.review-text { color: #d1d1e0; line-height: 1.6; margin-bottom: 15px;}
+.review-user { font-family: var(--font-cyber); font-size: 0.8rem; color: var(--neon-pink); font-weight: 600; }
+
+/* ==========================================================================
+   İLETİŞİM VE HARİTA FILTRE AYARI
+   ========================================================================== */
+
+.contact-grid { display: grid; grid-template-cols: 1fr 1fr; padding: 0; overflow: hidden; }
+@media (max-width: 900px) { .contact-grid { grid-template-cols: 1fr; } }
+
+.contact-info-panel { padding: 50px; }
+.contact-lead { color: var(--text-gray); margin-bottom: 30px; font-size: 1.1rem; }
+.info-blocks { display: flex; flex-direction: column; gap: 25px; }
+.info-block { font-size: 1.2rem; }
+.info-block .icon { font-family: var(--font-cyber); font-weight: 700; color: var(--neon-pink); display: block; margin-bottom: 4px; font-size: 0.9rem;}
+.info-link { color: #fff; text-decoration: none; transition: 0.3s; font-weight: 700;}
+.info-link:hover { color: var(--neon-blue); }
+
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    filter: grayscale(1) invert(0.92) contrast(1.15); /* Premium siber karanlık harita filtresi */
+}
+.map-wrapper iframe {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+.cyber-footer { border-t: 1px solid rgba(255,255,255,0.05); padding: 40px 0; background: #020205; text-align: center; font-size: 0.9rem; color: var(--text-gray); position: relative; z-index: 10; }
+.footer-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.footer-tag { font-family: var(--font-cyber); font-size: 0.7rem; color: var(--cyber-yellow); letter-spacing: 2px; }
+
+.neon-pink-text { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
